@@ -3,8 +3,8 @@ name: Update README with Language Stats
 on:
   push:
     branches:
-      - main  # Setze hier den Branch-Namen, auf dem der Workflow ausgeführt werden soll
-  workflow_dispatch:  # Ermöglicht manuelle Ausführung
+      - main 
+  workflow_dispatch: 
 
 jobs:
   update-readme:
@@ -20,7 +20,9 @@ jobs:
 
       - name: Run script to update README
         run: |
-          python3 scripts/update_readme.py  # Hier den Pfad zu deinem Skript anpassen
+          python3 scripts/update_readme.py  # Passe den Pfad zum Skript an
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}  
 
       - name: Commit changes to README
         run: |
