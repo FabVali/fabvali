@@ -1,33 +1,31 @@
-name: Update README
+name: Update README with Language Stats
 
 on:
-  schedule:
-    - cron: "0 0 * * *" # Täglich um Mitternacht
-  workflow_dispatch:     # Ermöglicht manuelle Ausführung
+  push:
+    branches:
+      - main  # Setze hier den Branch-Namen, auf dem der Workflow ausgeführt werden soll
+  workflow_dispatch:  # Ermöglicht manuelle Ausführung
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      # Installiere Python (oder andere Abhängigkeiten, falls benötigt)
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.x
-
-      # Generiere Statistiken (z. B. Commit-Zeiten)
-      - name: Generate Commit Stats
+      - name: Install dependencies
         run: |
           pip install requests
-          python scripts/update_readme.py
 
-      # Füge Änderungen in die README ein
-      - name: Commit Changes
+      - name: Run script to update README
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python3 scripts/update_readme.py  # Hier den Pfad zu deinem Skript anpassen
+
+      - name: Commit changes to README
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
           git add README.md
-          git commit -m "Update README with latest stats" || echo "No changes to commit"
+          git commit -m "Update README with language stats"
           git push
