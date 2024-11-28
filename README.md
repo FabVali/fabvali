@@ -1,4 +1,4 @@
-### Hey 👋, my name is FabVali
+### Hey 👋, My name is FabVali
 #### Developer
 I am an german hobby developer, currently working on a small discord Bot named ASFA.
 
