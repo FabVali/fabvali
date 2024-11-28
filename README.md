@@ -17,6 +17,8 @@ https://asfa-bot.xyz
 ![GitHub Stats](https://gh-readme-profile.vercel.app/api?username=fabvali&theme=dark)
 
 ![GitHub streak stats](https://streak-stats.demolab.com/?user=fabvali&theme=dark)  
+<!--START_SECTION:language_stats-->
+<!--END_SECTION:language_stats-->
 
 
 <!--
